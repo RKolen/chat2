@@ -1,7 +1,7 @@
 <?PHP
 	header("Content-Type:application/json");
 	$verb = $_SERVER['REQUEST_METHOD'];
-	$my_file = 'test2.txt';
+	$my_file = 'test3.txt';
 	//decode the json string
 	if (json_decode(openFile($my_file)) != null) {
 		$messages = json_decode(openFile($my_file));
@@ -10,24 +10,17 @@
 		$messages = [];
 		$i = 0;
 	}
-		// puts the message on the "textfile"
-		if ($verb == "PUT") {
-			//identify the mykey and value to add an ID
-			if (isset($_GET['mykey']) and isset($_GET['value'])) {
-				//create an array of id, mykey and value
-				$newMessage = array($i, $_GET['mykey'], $_GET['value']);
-				//add array to the file
-				array_push($messages, $newMessage);
-				writeFile($my_file, $messages);
-				http_response_code(200);
-				echo("value");
-				$i++;
-			} else {
-				http_response_code(400);
-			}
+
+	if ($verb == "GET") {
+		//gets the correct id and mykey
+		$getMessage = $messages[$_GET['lastid']];
+		if (isset($_GET['lastid']) and isset($_GET['mykey'])) {
+			response($getMessage[0], $getMessage[1], $getMessage[2]);
 		} else {
 			http_response_code(400);
 		}
+	}
+		
 		// opens and reads the file
 		function openFile($file) {
 			$handle = fopen($file, 'r');
@@ -40,4 +33,16 @@
 			fwrite($handle, $message);
 		}
 
+		// response function to see response from the network
+		function response($lastid, $mykey, $value) {
+		header("HTTP/1.1 ");
+		
+		$response['value'] = $value;
+		$response['lastid'] = $lastid;
+		$response['key'] = $mykey;
+		
+		$json_response = json_encode($response);
+		echo $json_response;
+	}
+	
 ?>
