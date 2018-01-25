@@ -1,0 +1,17 @@
+Assignment 2:
+
+The goal is to create a REST protocol for chatapplications.
+Using PHP create a RESTfull API, documented using swagger.io.
+During the project use the SCRUM method.
+
+3 tiers defined for the assignment are as follows:
+T1: A fixed response, using PHP to return a fixed message.
+T2: Using a flatfile datastructure, and link it to the chat function of assignment 1.
+T3: Using an SQL database.
+
+Approach:
+
+After reading documententation I tried to find tutorials how to make an API in PHP.
+To practice I wrote the code and added to the repository.
+I made a simple function to return a fixed response.
+Using the API tutorial to create my own PUT and GET requestmethods and couple it to my own chat.
