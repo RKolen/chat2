@@ -19,3 +19,8 @@ Wednesday T1 was added (very barebones).
 Thursday the PUT and GET requestmethods were created.
 Friday T2 was complete.
 
+One side note: the idea was that we all would use the same API documentation. 
+It was my understanding that the API documentation would mimic that of the previous week. 
+Upon inspecting the API documentation, it seemed it did not. 
+I did attempt to change my code to match the documentation written but was not able to get it to work, yet.
+

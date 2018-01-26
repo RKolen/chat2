@@ -12,11 +12,11 @@
 	}
 
 	if ($verb == "GET") {
-		//gets the correct id and mykey
+		//gets the correct id and key
 		$getMessage = $messages[$_GET['id']];
 		if (isset($_GET['id']) and isset($_GET['key'])) {
 			response($getMessage[0], $getMessage[1], $getMessage[2]);
-			// if lastid is not given one must be applied
+			// if id is not given one must be applied
 		} elseif (!isset($_GET['id']) and isset($_GET['key'])) {
 			$idlist = "";
 			for ($j = 0 ; $j < count($messages) ; $j++) {
@@ -31,9 +31,9 @@
 	}
 	// puts the message on the "textfile"
 	} elseif ($verb == "PUT") {
-			//identify the mykey and value to add an ID
+			//identify the key and value to add an id
 			if (isset($_GET['key']) and isset($_GET['value'])) {
-				//create an array of id, mykey and value
+				//create an array of id, key and value
 				$newMessage = array($i, $_GET['key'], $_GET['value']);
 				//add array to the file
 				array_push($messages, $newMessage);
@@ -67,8 +67,6 @@
 		$response['id'] = $id;
 		$response['key'] = $key;
 		$response['message'] = $message;
-		
-		
 		
 		$json_response = json_encode($response);
 		echo $json_response;
