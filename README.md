@@ -1,5 +1,5 @@
 # chat2
-http://wijzijncodegorilla.nl/raymond/chat2.0/
+http://www.codechamps.nl/raymond/chat2.0/
 
 The API.
 https://app.swaggerhub.com/apis/rkolen/API-Raymond-2.0/1.0.1
